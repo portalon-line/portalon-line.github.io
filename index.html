@@ -1,794 +1,440 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planejados Ektec - Móveis Planejados Sob Medida</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            overflow-x: hidden;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-            padding: 18px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid #8B4513;
-            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.15);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: 800;
-            color: #1a1a1a;
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            color: #8B4513;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(139, 69, 19, 0.5);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            margin-top: 86px;
-            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 50%, #f5f0eb 100%);
-            padding: 120px 0 100px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(139, 69, 19, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(139, 69, 19, 0.1);
-            border: 1px solid rgba(139, 69, 19, 0.3);
-            color: #8B4513;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 30px;
-            animation: pulse-badge 2s infinite;
-        }
-
-        @keyframes pulse-badge {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.3); }
-            50% { box-shadow: 0 0 0 10px rgba(139, 69, 19, 0); }
-        }
-
-        .hero-text h1 {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #8B4513 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text p {
-            font-size: 20px;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(139, 69, 19, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #8B4513;
-            text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            border: 2px solid #8B4513;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(139, 69, 19, 0.08);
-            transform: translateY(-3px);
-        }
-
-        /* ===== SERVICES ===== */
-        .services {
-            padding: 80px 0;
-            background: #faf8f5;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-
-        .section-header h2 span {
-            color: #8B4513;
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 16px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #ffffff, #f5f0eb);
-            border: 1px solid #e8ddd0;
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #8B4513, #A0522D);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: #8B4513;
-            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.12);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #8B451320, #A0522D20);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-            border: 2px solid #8B451340;
-        }
-
-        .service-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a1a1a;
-        }
-
-        .service-card p {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .cta-btn {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.5);
-        }
-
-        /* ===== ABOUT / COMPANY INFO ===== */
-        .about {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #ffffff 0%, #f5f0eb 100%);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .about-text h2 span {
-            color: #8B4513;
-        }
-
-        .about-text p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .about-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .about-info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: #ffffff;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border-left: 4px solid #8B4513;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .about-info-item .icon {
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .about-info-item .text {
-            font-size: 14px;
-            color: #444;
-            line-height: 1.5;
-        }
-
-        .about-info-item .text strong {
-            color: #1a1a1a;
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .about-visual {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            border-radius: 24px;
-            padding: 60px 40px;
-            text-align: center;
-            color: #ffffff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-visual::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .about-visual h3 {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-visual .stat {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-visual .stat-label {
-            font-size: 14px;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== CTA ===== */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(139, 69, 19, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-section h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            color: #1a1a1a;
-        }
-
-        .cta-section h2 span {
-            color: #8B4513;
-        }
-
-        .cta-section p {
-            color: #555;
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-main-btn {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 20px 50px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(139, 69, 19, 0.4);
-            position: relative;
-            z-index: 1;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 8px 30px rgba(139, 69, 19, 0.4); }
-            50% { box-shadow: 0 8px 40px rgba(139, 69, 19, 0.7); }
-        }
-
-        .cta-main-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer-main {
-            background: #1a1a1a;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            color: #ffffff;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #8B4513;
-            display: inline-block;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #aaa;
-            font-size: 14px;
-            line-height: 1.8;
-            text-decoration: none;
-            display: block;
-            transition: color 0.3s ease;
-        }
-
-        .footer-col a:hover {
-            color: #8B4513;
-        }
-
-        .footer-col .company-name {
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .footer-col .cnpj {
-            color: #8B4513;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 25px;
-            text-align: center;
-        }
-
-        .footer-bottom p {
-            color: #666;
-            font-size: 13px;
-        }
-
-        .footer-bottom .highlight {
-            color: #8B4513;
-            font-weight: 600;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 32px;
-            }
-
-            .hero-text p {
-                font-size: 18px;
-            }
-
-            .section-header h2 {
-                font-size: 28px;
-            }
-
-            .cta-section h2 {
-                font-size: 28px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .nav-cta span {
-                display: none;
-            }
-
-            .nav-cta {
-                padding: 12px 16px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal CNH Brasil — Serviços de Habilitação</title>
+<style>
+  :root {
+    --cnh-green: #00923F;
+    --cnh-green-dark: #007a33;
+    --cnh-yellow: #FFCC00;
+    --cnh-red: #E30613;
+    --cnh-dark: #1a3c1a;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-tertiary: #888;
+    --border: #e0e0e0;
+    --surface: #fafafa;
+    --surface-raised: #fff;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); color: var(--text-primary); line-height: 1.5; background: #f5f5f5; }
+  a { text-decoration: none; color: inherit; }
+  .header { background: linear-gradient(135deg, var(--cnh-green) 0%, var(--cnh-green-dark) 100%); color: white; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; border-radius: 0 0 12px 12px; flex-wrap: wrap; gap: 12px; }
+  .header-left { display: flex; align-items: center; gap: 12px; }
+  .logo-circle { width: 44px; height: 44px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--cnh-green); font-size: 18px; border: 3px solid var(--cnh-yellow); }
+  .header h1 { font-size: 18px; font-weight: 500; letter-spacing: 0.5px; }
+  .header span { font-size: 12px; opacity: 0.9; display: block; margin-top: 2px; }
+  .nav { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav button { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s; font-family: inherit; }
+  .nav button:hover, .nav button.active { background: var(--cnh-yellow); color: var(--cnh-dark); border-color: var(--cnh-yellow); font-weight: 500; }
+  .hero { padding: 32px 20px 24px; text-align: center; background: var(--surface-raised); }
+  .hero h2 { font-size: 24px; font-weight: 500; margin-bottom: 8px; }
+  .hero p { font-size: 15px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; }
+  .strip { height: 4px; background: linear-gradient(90deg, var(--cnh-green) 33%, var(--cnh-yellow) 33%, var(--cnh-yellow) 66%, var(--cnh-green) 66%); border-radius: 2px; margin: 0 20px 24px; }
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding: 0 20px 24px; }
+  .service-card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; background: var(--surface-raised); transition: transform 0.2s, box-shadow 0.2s; }
+  .service-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .badge-green { background: rgba(0,146,63,0.12); color: var(--cnh-green); }
+  .badge-yellow { background: rgba(255,204,0,0.2); color: #8a6d00; }
+  .badge-red { background: rgba(227,6,19,0.12); color: var(--cnh-red); }
+  .service-card h3 { font-size: 17px; font-weight: 500; margin-bottom: 6px; }
+  .service-card .desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; }
+  .price-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+  .price { font-size: 28px; font-weight: 500; color: var(--cnh-green); font-variant-numeric: tabular-nums; }
+  .price-note { font-size: 12px; color: var(--text-tertiary); }
+  .detail-list { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .detail-list li { list-style: none; font-size: 13px; color: var(--text-secondary); padding: 4px 0; display: flex; justify-content: space-between; }
+  .detail-list li strong { color: var(--text-primary); font-weight: 500; }
+  .detail-list .free { color: var(--cnh-green); font-weight: 500; }
+  .detail-list .varies { color: var(--text-tertiary); font-style: italic; }
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: white; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 500; text-decoration: none; margin-top: 14px; transition: background 0.2s; cursor: pointer; border: none; font-family: inherit; width: 100%; justify-content: center; }
+  .btn-whatsapp:hover { background: #1ebe57; }
+  .btn-whatsapp svg { width: 18px; height: 18px; }
+  .steps { padding: 0 20px 24px; }
+  .steps h3 { font-size: 17px; font-weight: 500; margin-bottom: 14px; }
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+  .step { text-align: center; padding: 14px 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+  .step-num { width: 28px; height: 28px; background: var(--cnh-green); color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  .step p { font-size: 12px; color: var(--text-secondary); }
+  .footer { background: var(--cnh-dark); color: rgba(255,255,255,0.7); padding: 24px 20px; border-radius: 12px 12px 0 0; margin-top: 8px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 16px; }
+  .footer h4 { color: white; font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+  .footer a { color: var(--cnh-yellow); text-decoration: none; font-size: 13px; display: block; padding: 3px 0; cursor: pointer; }
+  .footer a:hover { text-decoration: underline; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; font-size: 12px; text-align: center; color: rgba(255,255,255,0.5); }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 100; padding: 20px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface-raised); border-radius: 12px; max-width: 560px; width: 100%; max-height: 80vh; overflow-y: auto; padding: 24px; position: relative; border: 1px solid var(--border); }
+  .modal h3 { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+  .modal p, .modal li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
+  .modal ul { padding-left: 18px; }
+  .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .modal-close:hover { background: #eee; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 90; transition: transform 0.2s; }
+  .whatsapp-float:hover { transform: scale(1.08); }
+  .whatsapp-float svg { width: 28px; height: 28px; }
+  @media (max-width: 600px) {
+    .header { flex-direction: column; align-items: flex-start; }
+    .nav { width: 100%; }
+    .nav button { flex: 1; text-align: center; }
+    .price { font-size: 22px; }
+  }
+</style>
 <base target="_blank">
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">E</div>
-                    <div class="logo-text">Planejados <span>Ektec</span></div>
-                </div>
-                <a href="#servicos" class="nav-cta">
-                    📋 <span>Ver Serviços</span>
-                </a>
-            </div>
-        </div>
-    </header>
+<div class="header">
+  <div class="header-left">
+    <div class="logo-circle">CNH</div>
+    <div>
+      <h1>Portal CNH Brasil</h1>
+      <span>Serviços de Habilitação — Detran</span>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="active" onclick="showTab('primeira', this)">Primeira CNH</button>
+    <button onclick="showTab('adicao', this)">Adicionar Categoria</button>
+    <button onclick="showTab('renovacao', this)">Renovação</button>
+  </div>
+</div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">🏆 Mais de 10 anos de experiência</div>
-                <div class="hero-text">
-                    <h1>Móveis Planejados Sob Medida para Sua Casa</h1>
-                    <p>Transformamos seus ambientes com móveis de alta qualidade, design exclusivo e acabamento impecável. Da cozinha ao closet, fazemos tudo sob medida para você.</p>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#servicos" class="btn-primary">
-                        📐 Conhecer Serviços
-                    </a>
-                    <a href="#contato" class="btn-secondary">
-                        📍 Onde Estamos
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="hero">
+  <h2 id="hero-title">Sua primeira habilitação</h2>
+  <p id="hero-desc">Valores reais das taxas oficiais do Detran e do CONTRAN para 2026. Sem valores de autoescolas.</p>
+</div>
+<div class="strip"></div>
 
-    <!-- Services Section -->
-    <section class="services" id="servicos">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nossos <span>Serviços</span></h2>
-                <p>Oferecemos soluções completas em móveis planejados, desde o projeto até a instalação final. Qualidade e compromisso em cada detalhe.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🛋️</div>
-                    <h3>Cozinhas Planejadas</h3>
-                    <p>Projetamos cozinhas funcionais e elegantes, otimizando cada espaço com armários, balcões e ilhas sob medida para seu dia a dia.</p>
-                    <a href="#contato" class="cta-btn">
-                        📐 Saiba Mais
-                    </a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👔</div>
-                    <h3>Closets e Guarda-Roupas</h3>
-                    <p>Closets personalizados com divisórias inteligentes, gavetas, sapateiras e cabideiros. Organização e sofisticação para seu quarto.</p>
-                    <a href="#contato" class="cta-btn">
-                        📐 Saiba Mais
-                    </a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📺</div>
-                    <h3>Home Theater e Sala</h3>
-                    <p>Racks, painéis e estantes sob medida para sua sala de estar. Design moderno que combina com seu estilo e acomoda seus equipamentos.</p>
-                    <a href="#contato" class="cta-btn">
-                        📐 Saiba Mais
-                    </a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📚</div>
-                    <h3>Escritórios e Home Office</h3>
-                    <p>Mesas, estantes e armários para escritório com design ergonômico. Produtividade e conforto no seu espaço de trabalho.</p>
-                    <a href="#contato" class="cta-btn">
-                        📐 Saiba Mais
-                    </a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛁</div>
-                    <h3>Banheiros e Lavanderias</h3>
-                    <p>Armários e nichos sob medida para banheiros e áreas de serviço. Resistentes à umidade com acabamento de alta qualidade.</p>
-                    <a href="#contato" class="cta-btn">
-                        📐 Saiba Mais
-                    </a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Montagem e Instalação</h3>
-                    <p>Serviço completo de montagem de móveis de qualquer material. Equipe especializada para garantir perfeição na instalação.</p>
-                    <a href="#contato" class="cta-btn">
-                        📐 Saiba Mais
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div id="tab-primeira" class="tab-content active">
+  <div class="services">
+    <div class="service-card">
+      <span class="badge badge-green">Categoria A — Moto</span>
+      <h3>Primeira Habilitação Moto</h3>
+      <p class="desc">Para conduzir veículos de duas rodas com ou sem carro lateral.</p>
+      <div class="price-row"><span class="price">R$ 228</span><span class="price-note">a R$ 371</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Exame de aptidão física e mental</span> <strong>R$ 90,00</strong></li>
+        <li><span>Avaliação psicológica</span> <strong>R$ 90,00</strong></li>
+        <li><span>Taxa de serviço / abertura de processo</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Prova teórica (Detran)</span> <strong>R$ 53,00</strong></li>
+        <li><span>Prova prática (Detran)</span> <strong>R$ 53,00</strong></li>
+        <li><span>Emissão da PPD / CNH</span> <strong>R$ 138,00</strong></li>
+        <li><span>Exame toxicológico (obrigatório)</span> <strong class="varies">R$ 100–160</strong></li>
+        <li><span>Curso teórico (app CNH do Brasil)</span> <strong class="free">Gratuito</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20solicitar%20a%20Primeira%20Habilitação%20Categoria%20A%20(Moto).%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="service-card">
+      <span class="badge badge-yellow">Categoria B — Carro</span>
+      <h3>Primeira Habilitação Carro</h3>
+      <p class="desc">Veículos de passeio, com peso bruto total de até 3.500 kg.</p>
+      <div class="price-row"><span class="price">R$ 371</span><span class="price-note">a R$ 530</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Exame de aptidão física e mental</span> <strong>R$ 90,00</strong></li>
+        <li><span>Avaliação psicológica</span> <strong>R$ 90,00</strong></li>
+        <li><span>Taxa de serviço / abertura de processo</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Prova teórica (Detran)</span> <strong>R$ 53,00</strong></li>
+        <li><span>Prova prática (Detran)</span> <strong>R$ 53,00</strong></li>
+        <li><span>Emissão da PPD / CNH</span> <strong>R$ 138,00</strong></li>
+        <li><span>Exame toxicológico (obrigatório)</span> <strong class="varies">R$ 100–160</strong></li>
+        <li><span>Curso teórico (app CNH do Brasil)</span> <strong class="free">Gratuito</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20solicitar%20a%20Primeira%20Habilitação%20Categoria%20B%20(Carro).%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="service-card">
+      <span class="badge badge-red">Categoria AB — Moto + Carro</span>
+      <h3>Primeira Habilitação AB</h3>
+      <p class="desc">Ambas as categorias no mesmo processo. Taxas de serviço unificadas.</p>
+      <div class="price-row"><span class="price">R$ 371</span><span class="price-note">a R$ 530</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Exame de aptidão física e mental</span> <strong>R$ 90,00</strong></li>
+        <li><span>Avaliação psicológica</span> <strong>R$ 90,00</strong></li>
+        <li><span>Taxa de serviço / abertura de processo</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Provas teóricas (Detran)</span> <strong>R$ 53,00</strong></li>
+        <li><span>Provas práticas A + B</span> <strong>R$ 106,00</strong></li>
+        <li><span>Emissão da PPD / CNH</span> <strong>R$ 138,00</strong></li>
+        <li><span>Exame toxicológico (obrigatório)</span> <strong class="varies">R$ 100–160</strong></li>
+        <li><span>Curso teórico (app CNH do Brasil)</span> <strong class="free">Gratuito</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20solicitar%20a%20Primeira%20Habilitação%20Categoria%20AB%20(Moto%20+%20Carro).%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="steps">
+    <h3>Passo a passo — Primeira CNH</h3>
+    <div class="step-grid">
+      <div class="step"><div class="step-num">1</div><p>Baixe o app CNH do Brasil e faça o curso teórico gratuito</p></div>
+      <div class="step"><div class="step-num">2</div><p>Agende exames médico, psicológico e toxicológico em clínica credenciada</p></div>
+      <div class="step"><div class="step-num">3</div><p>Agende e realize a prova teórica no Detran da sua UF</p></div>
+      <div class="step"><div class="step-num">4</div><p>Faça as aulas práticas obrigatórias com instrutor credenciado</p></div>
+      <div class="step"><div class="step-num">5</div><p>Realize a prova prática de direção veicular</p></div>
+      <div class="step"><div class="step-num">6</div><p>Receba a Permissão para Dirigir (PPD) válida por 1 ano</p></div>
+    </div>
+  </div>
+</div>
 
-    <!-- About / Company Info -->
-    <section class="about" id="contato">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>Por que escolher a <span>Ektec</span>?</h2>
-                    <p>A Ektec é uma empresa especializada em móveis planejados, com mais de 10 anos de experiência no mercado. Trabalhamos com materiais de alta qualidade, design exclusivo e atenção a cada detalhe para transformar seus ambientes.</p>
-                    <p>Nosso compromisso é entregar móveis que unam funcionalidade, beleza e durabilidade, sempre respeitando o prazo e o orçamento do cliente.</p>
-                    <div class="about-info">
-                        <div class="about-info-item">
-                            <span class="icon">📍</span>
-                            <div class="text">
-                                <strong>Endereço</strong>
-                                Rua Antonina, 103 - Bosque de Jandira, Jandira - SP, CEP 06620-370
-                            </div>
-                        </div>
-                        <div class="about-info-item">
-                            <span class="icon">🏢</span>
-                            <div class="text">
-                                <strong>CNPJ</strong>
-                                17.767.143/0001-26
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <h3>Ektec</h3>
-                    <div class="stat">10+</div>
-                    <div class="stat-label">Anos de Experiência</div>
-                    <div style="margin-top: 30px;">
-                        <div class="stat" style="font-size: 36px;">100%</div>
-                        <div class="stat-label">Compromisso com a Qualidade</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div id="tab-adicao" class="tab-content">
+  <div class="services">
+    <div class="service-card">
+      <span class="badge badge-green">Adicionar A (Moto)</span>
+      <h3>Adicionar Categoria A</h3>
+      <p class="desc">Para quem já possui CNH B e quer pilotar motocicletas.</p>
+      <div class="price-row"><span class="price">R$ 200</span><span class="price-note">a R$ 297</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Taxa de serviço / abertura de processo</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Exame médico (se vencido)</span> <strong>R$ 90,00</strong></li>
+        <li><span>Prova prática categoria A</span> <strong>R$ 53,00</strong></li>
+        <li><span>Emissão nova CNH</span> <strong>R$ 138,00</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20adicionar%20a%20Categoria%20A%20(Moto)%20à%20minha%20CNH.%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="service-card">
+      <span class="badge badge-yellow">Adicionar B (Carro)</span>
+      <h3>Adicionar Categoria B</h3>
+      <p class="desc">Para quem já possui CNH A e quer dirigir veículos de passeio.</p>
+      <div class="price-row"><span class="price">R$ 200</span><span class="price-note">a R$ 297</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Taxa de serviço / abertura de processo</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Exame médico (se vencido)</span> <strong>R$ 90,00</strong></li>
+        <li><span>Prova prática categoria B</span> <strong>R$ 53,00</strong></li>
+        <li><span>Emissão nova CNH</span> <strong>R$ 138,00</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20adicionar%20a%20Categoria%20B%20(Carro)%20à%20minha%20CNH.%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="service-card">
+      <span class="badge badge-red">Adicionar C, D ou E</span>
+      <h3>Adicionar Categoria Profissional</h3>
+      <p class="desc">Para conduzir veículos de carga ou passageiros. Exame psicológico obrigatório.</p>
+      <div class="price-row"><span class="price">R$ 250</span><span class="price-note">a R$ 380</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Taxa de serviço / abertura de processo</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Exame médico + psicológico</span> <strong>R$ 180,00</strong></li>
+        <li><span>Prova prática</span> <strong>R$ 80,00</strong></li>
+        <li><span>Emissão nova CNH</span> <strong>R$ 138,00</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20adicionar%20Categoria%20Profissional%20(C,%20D%20ou%20E)%20à%20minha%20CNH.%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="steps">
+    <h3>Passo a passo — Adição de Categoria</h3>
+    <div class="step-grid">
+      <div class="step"><div class="step-num">1</div><p>Verifique se sua CNH está válida e sem pontuação excessiva</p></div>
+      <div class="step"><div class="step-num">2</div><p>Agende exames médico e psicológico (obrigatório para C, D, E)</p></div>
+      <div class="step"><div class="step-num">3</div><p>Solicite abertura de processo no Detran e pague a taxa</p></div>
+      <div class="step"><div class="step-num">4</div><p>Faça aulas práticas com instrutor da nova categoria</p></div>
+      <div class="step"><div class="step-num">5</div><p>Realize a prova prática específica da categoria</p></div>
+      <div class="step"><div class="step-num">6</div><p>Retire a nova CNH com a categoria adicionada</p></div>
+    </div>
+  </div>
+</div>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Transforme seu ambiente com a <span>Ektec</span></h2>
-            <p>Entre em contato conosco para solicitar seu orçamento sem compromisso. Nossa equipe está pronta para criar o projeto dos seus sonhos com móveis planejados de alta qualidade.</p>
-            <a href="#contato" class="cta-main-btn">
-                📍 Entre em Contato
-            </a>
-        </div>
-    </section>
+<div id="tab-renovacao" class="tab-content">
+  <div class="services">
+    <div class="service-card">
+      <span class="badge badge-green">Renovação Normal</span>
+      <h3>Renovação de CNH</h3>
+      <p class="desc">Para condutores com idade entre 18 e 64 anos. Válida por 5 anos (comum) ou 10 anos (sem infrações).</p>
+      <div class="price-row"><span class="price">R$ 230</span><span class="price-note">a R$ 400</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Taxa de renovação do Detran</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Exame de aptidão física e mental</span> <strong>R$ 90,00</strong></li>
+        <li><span>Avaliação psicológica*</span> <strong>R$ 90,00</strong></li>
+        <li><span>Emissão nova CNH</span> <strong>R$ 80,00</strong></li>
+      </ul>
+      <p class="price-note" style="margin-top:8px;">*Exigida a critério médico ou para atividade remunerada (EAR)</p>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20renovar%20minha%20CNH%20(renovação%20normal).%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="service-card">
+      <span class="badge badge-yellow">Renovação +60 anos</span>
+      <h3>Renovação para Idosos</h3>
+      <p class="desc">Condutores com 65 anos ou mais. CNH válida por 3 anos. Redução de 40% nas taxas em alguns estados.</p>
+      <div class="price-row"><span class="price">R$ 180</span><span class="price-note">a R$ 320</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Taxa de renovação Detran (-40%)</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Exame de aptidão física e mental</span> <strong>R$ 90,00</strong></li>
+        <li><span>Avaliação psicológica</span> <strong>R$ 90,00</strong></li>
+        <li><span>Emissão nova CNH</span> <strong>R$ 80,00</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20renovar%20minha%20CNH%20(sou%20maior%20de%2065%20anos).%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="service-card">
+      <span class="badge badge-red">Renovação com EAR</span>
+      <h3>Renovação — Exerce Atividade Remunerada</h3>
+      <p class="desc">Para motoristas profissionais. Avaliação psicológica e exame toxicológico são obrigatórios.</p>
+      <div class="price-row"><span class="price">R$ 380</span><span class="price-note">a R$ 530</span></div>
+      <p class="price-note">Taxas oficiais do Detran — variam por estado</p>
+      <ul class="detail-list">
+        <li><span>Taxa de renovação do Detran</span> <strong class="varies">Varia por UF</strong></li>
+        <li><span>Exame de aptidão física e mental</span> <strong>R$ 90,00</strong></li>
+        <li><span>Avaliação psicológica (obrigatória)</span> <strong>R$ 90,00</strong></li>
+        <li><span>Exame toxicológico (obrigatório)</span> <strong class="varies">R$ 100–160</strong></li>
+        <li><span>Emissão nova CNH</span> <strong>R$ 80,00</strong></li>
+      </ul>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20renovar%20minha%20CNH%20como%20motorista%20profissional%20(EAR).%20Poderia%20me%20informar%20sobre%20os%20próximos%20passos?" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="steps">
+    <h3>Passo a passo — Renovação</h3>
+    <div class="step-grid">
+      <div class="step"><div class="step-num">1</div><p>Verifique a data de vencimento da sua CNH (vence no aniversário)</p></div>
+      <div class="step"><div class="step-num">2</div><p>Agende exame médico em clínica credenciada pelo Detran</p></div>
+      <div class="step"><div class="step-num">3</div><p>Realize avaliação psicológica quando exigida (EAR ou critério médico)</p></div>
+      <div class="step"><div class="step-num">4</div><p>Acesse o portal do Detran e pague a taxa de renovação</p></div>
+      <div class="step"><div class="step-num">5</div><p>Agende a biometria e a emissão do novo documento</p></div>
+      <div class="step"><div class="step-num">6</div><p>Retire sua CNH renovada ou utilize a versão digital no app</p></div>
+    </div>
+  </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer-main">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Empresa</h4>
-                    <p class="company-name">EKTEC INDUSTRIA E COMERCIO DE MOVEIS PLANEJADOS LTDA</p>
-                    <p class="cnpj">CNPJ: 17.767.143/0001-26</p>
-                    <p>Nome Fantasia: Planejados Ektec</p>
-                    <p>Sociedade Empresária Limitada</p>
-                    <p>Situação Cadastral: ATIVA</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Endereço</h4>
-                    <p>Rua Antonina, 103</p>
-                    <p>Bosque de Jandira</p>
-                    <p>Jandira - SP</p>
-                    <p>CEP: 06620-370</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Serviços</h4>
-                    <a href="#servicos">Cozinhas Planejadas</a>
-                    <a href="#servicos">Closets e Guarda-Roupas</a>
-                    <a href="#servicos">Home Theater e Sala</a>
-                    <a href="#servicos">Escritórios e Home Office</a>
-                    <a href="#servicos">Banheiros e Lavanderias</a>
-                    <a href="#servicos">Montagem e Instalação</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 <span class="highlight">EKTEC INDUSTRIA E COMERCIO DE MOVEIS PLANEJADOS LTDA</span> - CNPJ 17.767.143/0001-26 - Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+<div class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Informações</h4>
+      <a onclick="openModal('privacidade')">Política de Privacidade</a>
+      <a onclick="openModal('termos')">Termos de Uso</a>
+      <a onclick="openModal('faq')">Perguntas Frequentes</a>
+    </div>
+    <div>
+      <h4>Serviços</h4>
+      <a onclick="showTab('primeira', document.querySelector('.nav button'))">Primeira CNH</a>
+      <a onclick="showTab('adicao', document.querySelectorAll('.nav button')[1])">Adicionar Categoria</a>
+      <a onclick="showTab('renovacao', document.querySelectorAll('.nav button')[2])">Renovação</a>
+    </div>
+  </div>
+  <div class="footer-bottom">Portal CNH Brasil</div>
+</div>
+
+<div id="modal-privacidade" class="modal-overlay" onclick="closeModal(event, 'privacidade')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect('privacidade')">×</button>
+    <h3>Política de Privacidade</h3>
+    <p><strong>1. Coleta de Dados</strong></p>
+    <p>Este portal não coleta, armazena ou processa dados pessoais dos visitantes. Trata-se de um site informativo sobre serviços de habilitação veicular no Brasil.</p>
+    <p><strong>2. Cookies e Rastreamento</strong></p>
+    <p>Não utilizamos cookies de rastreamento, pixels de conversão ou ferramentas de analytics que identifiquem usuários individualmente.</p>
+    <p><strong>3. Links Externos</strong></p>
+    <p>Links para sites governamentais (Detran, Ministério dos Transportes) estão sujeitos às políticas de privacidade dessas instituições.</p>
+    <p><strong>4. Atualizações</strong></p>
+    <p>Esta política pode ser atualizada periodicamente. A data da última revisão consta no rodapé do site.</p>
+    <p><strong>5. Contato</strong></p>
+    <p>Para dúvidas sobre privacidade, entre em contato pelo canal de atendimento disponível na seção de links úteis.</p>
+  </div>
+</div>
+
+<div id="modal-termos" class="modal-overlay" onclick="closeModal(event, 'termos')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect('termos')">×</button>
+    <h3>Termos de Uso</h3>
+    <p><strong>1. Natureza Informativa</strong></p>
+    <p>Este site tem caráter exclusivamente informativo e educativo. Os valores, prazos e procedimentos apresentados são baseados em dados públicos e resoluções do CONTRAN vigentes em 2026.</p>
+    <p><strong>2. Variação de Valores</strong></p>
+    <p>Os preços exibidos são estimativas baseadas em médias nacionais e podem variar significativamente entre estados, municípios e prestadores de serviço credenciados.</p>
+    <p><strong>3. Responsabilidade</strong></p>
+    <p>Não nos responsabilizamos por decisões tomadas com base nas informações aqui contidas. Sempre confirme valores e requisitos diretamente no Detran da sua unidade federativa.</p>
+    <p><strong>4. Propriedade Intelectual</strong></p>
+    <p>O conteúdo textual e a organização visual deste portal são protegidos. A reprodução parcial ou total para fins comerciais é proibida sem autorização prévia.</p>
+    <p><strong>5. Legislação Aplicável</strong></p>
+    <p>Estes termos são regidos pelas leis da República Federativa do Brasil, em especial o Código de Trânsito Brasileiro (Lei nº 9.503/1997) e resoluções do CONTRAN.</p>
+  </div>
+</div>
+
+<div id="modal-faq" class="modal-overlay" onclick="closeModal(event, 'faq')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect('faq')">×</button>
+    <h3>Perguntas Frequentes</h3>
+    <p><strong>Quanto tempo leva para tirar a CNH?</strong></p>
+    <p>Com as novas regras de 2026, o processo pode ser concluído em cerca de 30 a 60 dias, dependendo da disponibilidade de vagas para provas no Detran.</p>
+    <p><strong>Posso usar meu próprio carro na prova prática?</strong></p>
+    <p>Sim, desde que o veículo esteja equipado com duplo comando, esteja em boas condições de conservação, com documentação e seguro em dia.</p>
+    <p><strong>O exame toxicológico é obrigatório?</strong></p>
+    <p>Sim, desde 2026 o exame toxicológico é obrigatório para primeira habilitação nas categorias A e B em todo o território nacional.</p>
+    <p><strong>Qual a validade da CNH?</strong></p>
+    <p>5 anos para condutores comuns; 3 anos para maiores de 65 anos; 10 anos para condutores sem infrações graves ou gravíssimas nos últimos 12 meses.</p>
+    <p><strong>Como funciona a CNH Digital?</strong></p>
+    <p>A CNH Digital é gratuita e tem a mesma validade jurídica da carteira física. É emitida pelo app CNH do Brasil, disponível nas lojas de aplicativos.</p>
+  </div>
+</div>
+
+<a href="https://wa.me/5511999999999?text=Olá!%20Visitei%20o%20Portal%20CNH%20Brasil%20e%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20de%20habilitação.%20Poderia%20me%20ajudar?" target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function showTab(tab, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    const titles = {
+      primeira: ['Sua primeira habilitação', 'Valores reais das taxas oficiais do Detran e do CONTRAN para 2026. Sem valores de autoescolas.'],
+      adicao: ['Adicionar categoria à CNH', 'Amplie suas habilitações com os valores reais das taxas oficiais do Detran.'],
+      renovacao: ['Renovação de CNH', 'Mantenha sua habilitação em dia com os valores reais das taxas oficiais do Detran.']
+    };
+    document.getElementById('hero-title').textContent = titles[tab][0];
+    document.getElementById('hero-desc').textContent = titles[tab][1];
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(event, id) {
+    if (event.target === document.getElementById('modal-' + id)) {
+      document.getElementById('modal-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  function closeModalDirect(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+      document.body.style.overflow = '';
+    }
+  });
+</script>
 
 </body>
 </html>
